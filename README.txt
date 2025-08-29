@@ -41,10 +41,11 @@ def generar_decimal(dificultad): -> utlizando la libreria RANDOM, se genera un n
 def generar_codigo(decimal, dificultad): -> se convierte el decimal antes generado en el codigo correspondiente
                                             requiere de un decimal entero, y de un input de dificultad
 
-def descifrar_codigo(codigo, decimal, dificultad): -> loop el cual pregunta por la respuesta del codigo generado
-                                                      si se ingresa mal, se avisa con un mensaje, de lo contrario
-                                                      avisa que fue descifrado correctamente y sube un nivel de dificultad
-                                                      require una cadena de codigo, un numero entero y un input de numero entero de dificultad
+def descifrar_codigo(): -> loop el cual pregunta por la respuesta del codigo generado
+                           si se ingresa mal, se avisa con un mensaje, de lo contrario
+                           avisa que fue descifrado correctamente y sube un nivel de dificultad
+			   Luego de descifrar correctamente, se reinician los valores de dificultad, codigo y decimal para 
+			   evitar que se pueda descifrar dos veces un mismo codigo y hacer "trampa"
 
 def subir_nivel(dificultad, nivel): -> se sube el nivel actual en +1
                                        requiere de un entero de dificultad y un entero de nivel

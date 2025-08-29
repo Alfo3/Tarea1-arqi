@@ -101,8 +101,8 @@ def generar_codigo(decimal, dificultad):
             codigo=decimal_hexa(decimal)
     return codigo
 
-def descifrar_codigo(codigo, decimal, dificultad):
-    global nivel
+def descifrar_codigo():
+    global nivel, codigo, decimal, dificultad
     respuesta=0
     while respuesta != -1:
         print("Debes convertir el código ", codigo, "a decimal.")
@@ -110,6 +110,9 @@ def descifrar_codigo(codigo, decimal, dificultad):
         if respuesta==decimal:
             print("Felicidades, has descifrado correctamente el código.")
             nivel = subir_nivel(dificultad, nivel)
+            codigo = None   #estos 3 de aca resetean el codigo generado
+            decimal = None
+            dificultad = None
             return 
         elif (respuesta != decimal and respuesta != -1):
             print("Alto salame, intentalo nuevamente")
@@ -137,6 +140,10 @@ def subir_nivel(dificultad, nivel):
 #-------------------------------
 
 def menu():
+    global dificultad, decimal, codigo
+    dificultad = None
+    decimal = None
+    codigo = None
     while True:
         print("\nBienvenido al menu de opciones")
         print("1) Generar Codigo 🐈")
@@ -151,8 +158,11 @@ def menu():
             codigo=generar_codigo(decimal, dificultad)
             print ("El codigo generado es:", codigo)
         elif option == '2':
-            print("\nHas elegido descifrar el código, buena suerte hacker.")
-            descifrar_codigo(codigo, decimal, dificultad)
+            if codigo is None or decimal is None or dificultad is None:
+                print("\nPrimero debes generar un codigo antes de descifralo, no seas pillo!")
+            else:
+                print("\nHas elegido descifrar el código, buena suerte hacker.")
+                descifrar_codigo()
         elif option == '3':
             break # aqui se sale del programa nomas, kaboom
         else:
