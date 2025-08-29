@@ -61,9 +61,9 @@ def elegir_dificultad(nivel):
     while True:
         print()
         print("Elige el sistema a hackear")
-        print("1) Firewall")
-        print("2) Servidor")
-        print("3) Memoria")
+        print("1) Firewall:     Binario -> Decimal")
+        print("2) Servidor:     Octal   -> Decimal")
+        print("3) Memoria:      Hexadecimal -> Decimal")
         dificultad=(input("> "))
         if(not(dificultad=='1' or dificultad=='2' or dificultad=='3')):
             print("Error al elegir dificultad, por favor intente nuevamente\n")
